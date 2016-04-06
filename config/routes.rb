@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'users#index'
 
+  # Omniauth routes
+  get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+  resources :users, only: [:show, :edit, :update, :destroy]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
