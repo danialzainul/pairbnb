@@ -4,6 +4,10 @@ source 'https://rubygems.org'
 gem 'clearance'
 gem 'figaro'
 
+# OmniAuth -> allows us to login using Facebook etc
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
