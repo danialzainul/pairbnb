@@ -5,7 +5,7 @@ class CreateListings < ActiveRecord::Migration
     	t.string	:home_type
     	t.string	:room_type
     	t.text		:description
-    	t.integer :accommodates
+    	t.integer	:accommodates
     	t.string	:country
     	t.string	:city
     	t.string	:address
@@ -14,6 +14,7 @@ class CreateListings < ActiveRecord::Migration
     	t.integer :no_of_rooms
     	t.integer :no_of_beds
     	t.integer :no_of_bathrooms
+      t.timestamps null: false
     end
   end
 end
