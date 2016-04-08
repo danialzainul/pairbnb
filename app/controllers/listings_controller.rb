@@ -4,19 +4,23 @@ class ListingsController < ApplicationController
   def new
     @listing = Listing.new
   end
-  
-  def show
+
+  def index
     @listing = Listing.all
+  end
+
+  def show
+
   end
 
   def create
     @listing = Listing.new(listing_params)
+    @listing.user_id = current_user.id
     if @listing.save
-      redirect_to root_path
+      redirect_to root_path, notice: "Listing created successfully :D"
     else
       render :new
-    end
-    
+    end 
   end
 
   private

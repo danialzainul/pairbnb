@@ -1,3 +1,8 @@
+<br><br><br>
 
+<h2>Your Listings</h2>
 
-<p>Test</p>
+<% @listing.each do |t| %>
+<%= link_to "#{t.listing_name}", listing_path(:id) %>
+
+<%end%>
