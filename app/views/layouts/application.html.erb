@@ -1,30 +1,13 @@
+<!-- WHAT IS IN THIS PAGE WILL SHOW UP ON EVERY PAGE!! -->
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pairbnb</title>
+  <title>PairBnB</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<!--   <% if signed_in? %>
-    Signed in as: <%= current_user.email %>
-    <%= button_to 'Sign out', sign_out_path, method: :delete %>
-  <% else %>
-    <%= link_to 'Sign in', sign_in_path %>
-  <% end %>
-
-  <div id="flash">
-    <% flash.each do |key, value| %>
-      <div class="flash <%= key %>"><%= value %></div>
-    <% end %>
-  </div>
-
-  <a href="/auth/facebook">
-    <class="fa fa-facebook"/>
-    Log In with Facebook
-  </a> -->
 
 <%= yield %>
   
@@ -50,7 +33,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">PairBnB</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -59,7 +42,20 @@
             <!-- <li><a href="#contact">Contact</a></li> -->
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
+            <li class="dropdown1">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Start hosting<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Create new listing", new_listing_path %></li>
+                <li><%= link_to "Your listing", listings_path %></li>
+                <!-- <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li> -->
+              </ul>
+            </li>
+
+            <li class="dropdown2">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Action</a></li>
@@ -82,8 +78,7 @@
     <% else %> <!-- ################################### -->
 
     <br><br><br>
-    <h2>Welcome to PairBnB!</h2>
-
+    
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -93,7 +88,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">PairBnB</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -121,6 +116,8 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+
+    
 
     <% end %>
 
