@@ -1,5 +1,15 @@
 <br><br><br>
+<!-- show INDIVIDUAL listings -->
 
-<p>test</p>
+<!-- WHY listings/id never change ?? -->
+<!-- How to go next line -->
+<% @listing.each do |t| %>
+<%= t.listing_name %>
+<%=	t.property_type %>
+<%= t.room_type %>
+<%= t.description %>
+<%end%><br>
+
+<!-- add CAROUSEL pictures -->
 
 <%= link_to "Go back to Listing index", listings_path %>

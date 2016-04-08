@@ -10,7 +10,7 @@ class ListingsController < ApplicationController
   end
 
   def show
-
+    @listing = Listing.all
   end
 
   def create
