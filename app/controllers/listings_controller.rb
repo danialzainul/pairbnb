@@ -11,6 +11,7 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.all
+    #should it be all, or should it be Listing.current_user
   end
 
   def create

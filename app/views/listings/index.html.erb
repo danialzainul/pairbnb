@@ -4,6 +4,6 @@
 <h2>Your Listings</h2>
 
 <% @listing.each do |t| %>
-<%= link_to "#{t.listing_name}", listing_path(:id) %>
+<%= link_to "#{t.listing_name}", listing_path(current_user.id) %>
 
 <%end%>

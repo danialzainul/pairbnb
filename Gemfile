@@ -8,8 +8,9 @@ gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
-# Avatar and Photos
-gem 'carrierwave'
+# Avatar and Photo Resizing
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem "mini_magick"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
