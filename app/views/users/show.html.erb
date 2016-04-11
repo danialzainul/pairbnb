@@ -3,4 +3,6 @@
 <h3>Name: <%= current_user.first_name %></h3>
 <h3>Email: <%= current_user.email %> </h3>
 
+<div id="profile_pic" >
 <h4> Your profile picture <br><%= link_to image_tag(current_user.avatar) %></h4>
+</div>

@@ -6,30 +6,38 @@ class ListingsController < ApplicationController
   end
 
   def index
-    @listing = Listing.all
+    @listings = Listing.all
   end
 
   def show
-    @listing = Listing.all
-    #should it be all, or should it be Listing.current_user
+    @listing = Listing.find(params[:id])
   end
 
   def create
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
     if @listing.save
-      redirect_to root_path, notice: "Listing created successfully :D"
+      redirect_to listing_path, notice: "Listing created successfully :D"
     else
       render :new
     end 
   end
 
-  private
-
-  def listing_params # This is white listing the strong params
-    params.require(:listing).permit(:listing_name, :property_type, :room_type, :description, :accommodates, :country, :city, :address, :price, :currency, :availability, :bedrooms, :beds, :bathrooms)
+  def update
+    @listing = Listing.find(params[:id])
+    @listing.update(listing_params)
+    if @listing.save
+      redirect_to listing_path, notice: "Listing updated successfully! :D "
+    else
+      render :update
+    end 
   end
 
+  private
 
-#strong_params is like a white list for permitted parameters, u dont allow anything not permitted to be saved and throw u error
+  #strong_params is like a white list for permitted parameters, u dont allow anything not permitted to be saved and throw u error
+  def listing_params # This is white listing the strong params
+    params.require(:listing).permit(:listing_name, :property_type, :room_type, :description, :accommodates, :country, :city, :address, :price, :currency, :availability, :bedrooms, :beds, :bathrooms, {photos: []})
+  end
+
 end

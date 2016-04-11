@@ -1,15 +1,38 @@
 <br><br><br>
 <!-- show INDIVIDUAL listings -->
 
-<!-- WHY listings/id never change ?? -->
-<!-- How to go next line -->
-<% @listing.each do |t| %>
-<%= t.listing_name %>
-<%=	t.property_type %>
-<%= t.room_type %>
-<%= t.description %>
-<%end%><br>
+<h3> <%= @listing.listing_name %></h3>
+<ul style="list-style-type:disc">
+  <li>Property type: <%=	@listing.property_type %></li>
+  <li>Room type: <%= @listing.room_type %></li>
+  <li>Description: <%= @listing.description %></li>
+  <li>Accommodates: <%= @listing.accommodates %></li>
+  <li>Bedrooms: <%= @listing.bedrooms %></li>
+  <li>Beds: <%= @listing.beds %></li>
+  <li>Bathrooms: <%= @listing.bathrooms %></li>
+  <li>Price per night: <%= @listing.currency %> <%= @listing.price %></li>
+</ul>
 
 <!-- add CAROUSEL pictures -->
+<div id="listing_pic">
+<%= link_to image_tag(@listing.photos.first) %>
+<%= link_to image_tag(@listing.photos.second) %>
+<%= link_to image_tag(@listing.photos.third) %>
+<%= link_to image_tag(@listing.photos.fourth) %>
+<!-- instead of uploading image from desktop, -->
+<!-- give it a link, then we just pull the link -->
+</div>
+
+<%= form_for @listing do |f| %>
+  <div class="field">
+    <%= f.label :upload_image %><br>
+    <%= f.file_field :photos, multiple: true %>
+  </div><br>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<%end%><br>
+
 
 <%= link_to "Go back to Listing index", listings_path %>
