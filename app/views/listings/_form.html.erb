@@ -41,19 +41,10 @@
 
 <!-- availability, do it by boolean -->
 <!-- ON then listing is up, vice versa -->
-<!-- 
-<%= radio_button_tag(:availability, "Yes") %>
-<%= label_tag(:availability, "My house is up!") %>
-<%= radio_button_tag(:availability, "No") %>
-<%= label_tag(:availability, "My house is down!") %><br><br>
+<br>
 
-<%= check_box_tag(:pet_dog) %>
-<%= label_tag(:pet_dog, "I own a dog") %>
-<%= check_box_tag(:pet_cat) %>
-<%= label_tag(:pet_cat, "I own a cat") %>
- -->
-<br><br>
-
-<%= f.submit "Create Listing!" %>
+<div class="submit-field">
+<%= f.submit %>
+</div>
 
 <% end %>

@@ -16,7 +16,7 @@ class CreateListings < ActiveRecord::Migration
     	t.integer   :bedrooms
     	t.integer   :beds
     	t.integer   :bathrooms
-      t.timestamps null: false
+       t.timestamps null: false
     end
   end
 end

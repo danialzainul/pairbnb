@@ -17,10 +17,14 @@ class ListingsController < ApplicationController
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
     if @listing.save
-      redirect_to listing_path, notice: "Listing created successfully :D"
+      redirect_to listings_path, notice: "Listing created successfully :D"
     else
       render :new
     end 
+  end
+
+  def edit
+    @listing = Listing.find(params[:id])
   end
 
   def update
@@ -31,6 +35,14 @@ class ListingsController < ApplicationController
     else
       render :update
     end 
+  end
+
+ 
+
+  def destroy
+    @listing = Listing.find(params[:id])
+    @listing.destroy
+    redirect_to listings_path
   end
 
   private
