@@ -11,6 +11,7 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
+    @reservation = Reservation.where(listing_id: params[:id])
   end
 
   def create
@@ -36,8 +37,6 @@ class ListingsController < ApplicationController
       render :update
     end 
   end
-
- 
 
   def destroy
     @listing = Listing.find(params[:id])

@@ -1,7 +1,7 @@
 <%= form_for @listing do |f| %>
 <br>
 <%= f.label :listing_name %>
-<%= f.text_field :listing_name, {class: "form-control"} %><br>
+<%= f.text_field :listing_name %><br>
 
 <%= f.label :property_type %>
 <%= f.select :property_type, ['Apartment', 'Condominium', 'House'], {}, {class: "form-control"} %><br>

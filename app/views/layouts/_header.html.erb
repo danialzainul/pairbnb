@@ -2,7 +2,7 @@
 
 <% if signed_in? %>
 
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-static-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -15,30 +15,24 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a href="#about">About</a></li>
+        <li><a href="#about"></a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown1">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reservations<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "Create new", '#' %></li>
-            <li><%= link_to "Current reservations", '#' %></li>
-          </ul>
-        </li>
 
         <li class="dropdown2">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Listings<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-home fa-lg" aria-hidden="true"></i><span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Create new", new_listing_path %></li>
-            <li><%= link_to "Current listings", listings_path %></li>
+            <li><%= link_to "My listings", listings_path %></li>
+            <li><%= link_to "My reservations", '#' %></li>
           </ul>
         </li>
 
         <li class="dropdown3">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.first_name %> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user fa-lg" aria-hidden="true"></i><span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to 'Your Profile', user_path(current_user.id), method: :get %></li>
+            <li><%= link_to current_user.first_name, user_path(current_user.id), method: :get %></li>
             <li><%= link_to 'Edit Profile', edit_user_path(current_user.id), method: :get %></li>
             <li role="separator" class="divider"></li>
             <!-- <li class="dropdown-header">Nav header</li> -->
@@ -57,7 +51,7 @@
 
 <br><br><br>
 
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-static-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">

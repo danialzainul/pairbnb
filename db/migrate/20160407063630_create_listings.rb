@@ -2,6 +2,7 @@ class CreateListings < ActiveRecord::Migration
   def change
     create_table :listings do |t|
     	t.string	:user_id
+        t.string    :reservation_id
         t.string    :listing_name
     	t.string	:property_type
     	t.string	:room_type

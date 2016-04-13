@@ -1,4 +1,3 @@
-<br><br><br>
 <!-- show INDIVIDUAL listings -->
 
 <h3> <%= @listing.listing_name %></h3>
@@ -15,25 +14,44 @@
 
 <!-- add CAROUSEL pictures -->
 <div id="listing_pic">
-<%= link_to image_tag(@listing.photos.first) %>
-<%= link_to image_tag(@listing.photos.second) %>
-<%= link_to image_tag(@listing.photos.third) %>
-<%= link_to image_tag(@listing.photos.fourth) %>
-<!-- instead of uploading image from desktop, -->
-<!-- give it a link, then we just pull the link -->
+  <% x = 0%>
+  <% @listing.photos.length.times do %>
+  <%= image_tag @listing.photos[x].url(:thumb) %>
+  <% x += 1%>
+  <%end%>
+  <!-- instead of uploading image from desktop, -->
+  <!-- give it a link, then we just pull the link -->
 </div>
 
 <%= form_for @listing do |f| %>
-  <div class="field">
-    <%= f.label :upload_image %><br>
-    <%= f.file_field :photos, multiple: true %>
-  </div><br>
+<div class="field">
+  <%= f.label :upload_image %><br>
+  <%= f.file_field :photos, multiple: true %>
+</div><br>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="submit-field">
+  <%= f.submit %>
+</div>
 <%end%><br>
 
+<div id="listing_reservations" >
+<table style="width:60%">
+  <tr>
+    <th> Reservation </th>
+    <th> Start Date </th>   
+    <th> End Date </th>
+  </tr>
+  <% @reservation.each do |r| %>
+  <tr>
+    <td><%= r.id %></td>
+    <td><%= r.start_date %></td>    
+    <td><%= r.end_date %></td>
+  </tr>
+  <% end %>
+  </table>
+</div>
+
+<%= link_to "RESERVE this place", new_listing_reservation_path(params[:id]) %><br>
 <%= link_to "EDIT listing", edit_listing_path %><br>
 <%= link_to "DELETE listing", listing_path, method: :delete %><br>
-<%= link_to "Go back to Listing index", listings_path %>
+<%= link_to "Go back to Listing index", listings_path %><br><br>

@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160411074209) do
 
   create_table "listings", force: :cascade do |t|
     t.string   "user_id"
+    t.string   "reservation_id"
     t.string   "listing_name"
     t.string   "property_type"
     t.string   "room_type"
@@ -41,8 +42,8 @@ ActiveRecord::Schema.define(version: 20160411074209) do
     t.integer  "bedrooms"
     t.integer  "beds"
     t.integer  "bathrooms"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.json     "photos"
   end
 
