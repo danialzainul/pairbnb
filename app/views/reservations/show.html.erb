@@ -1,0 +1,27 @@
+<h4> This is your reservation </h4>
+
+<div id="listing_reservations" >
+<table style="width:50%">
+  <tr>
+    <th> Start Date </th>   
+    <th> End Date </th>
+  </tr>
+
+  <tr>
+    <td><%= @reservation.start_date %></td>    
+    <td><%= @reservation.end_date %></td>
+  </tr>
+  </table>
+</div>
+
+<%= link_to 'Pay Now', purchases_new_path + "?id=" + @reservation.id.to_s %>
+
+<!-- generate a secure_token attached to reservation -->
+<!-- secure random generate a random string -->
+<!-- pass it on  -->
+
+<!-- purchases/payment db table -->
+<!-- reservation_id, braintree_transaction_id, last_4_digits,  -->
+
+<!-- after user click pay, redirect to purchases/payment new -->
+<!-- we print out the start date, end date and let user pay -->

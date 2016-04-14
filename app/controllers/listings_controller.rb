@@ -15,6 +15,7 @@ class ListingsController < ApplicationController
   end
 
   def create
+    # @listing = current_user.listings.new(listing_params)
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
     if @listing.save

@@ -4,6 +4,9 @@ source 'https://rubygems.org'
 gem 'clearance'
 gem 'figaro'
 
+# User payment system
+gem 'braintree'
+
 # OmniAuth -> allows us to login using Facebook etc
 gem 'omniauth'
 gem 'omniauth-facebook'

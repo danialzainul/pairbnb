@@ -10,6 +10,7 @@ class ReservationsController < ApplicationController
 	end
 
 	def show
+		# @listing = Listing.find(params[:listing_id])
 		@reservation = Reservation.find(params[:id])
 	end
 
@@ -17,7 +18,7 @@ class ReservationsController < ApplicationController
 		@reservation = current_user.reservations.new(reservation_params)
 		# @reservation.user_id = current_user.id
 		if @reservation.save
-      redirect_to listing_path notice: "Reservation created successfully :D"
+      redirect_to root_path notice: "Reservation created successfully :D"
     else
       render :new
     end
