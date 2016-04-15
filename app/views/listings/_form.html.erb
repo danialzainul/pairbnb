@@ -1,0 +1,50 @@
+<%= form_for @listing do |f| %>
+
+<%= f.label :listing_name %>
+<%= f.text_field :listing_name %><br>
+
+<%= f.label :property_type %>
+<%= f.select :property_type, ['Apartment', 'Condominium', 'House'] %><br>
+
+<%= f.label :room_type %>
+<%= f.select :room_type, ['Entire home/apt', 'Private Room', 'Shared Room'] %><br>
+
+<%= f.label :description %>
+<%= f.text_field :description %><br>
+
+<%= f.label :accommodates %>
+<%= f.select :accommodates, ['1', '2', '3', '4', '5', '6+'] %><br>
+
+<%= f.label :bedrooms %>
+<%= f.select :bedrooms, ['Studio', '1', '2', '3', '4', '5+'] %><br>
+
+<%= f.label :beds %>
+<%= f.select :beds, ['1', '2', '3', '4', '5', '6+'] %><br>
+
+<%= f.label :bathrooms %>
+<%= f.select :bathrooms, ['1', '2', '3', '4', '5', '6+'] %><br>
+
+<%= f.label :country %>
+<%= f.text_field :country %><br>
+
+<%= f.label :city %>
+<%= f.text_field :city %><br>
+
+<%= f.label :address %>
+<%= f.text_field :address %><br>
+
+<%= f.label :price %>
+<%= f.number_field :price %><br>
+
+<%= f.label :currency %>
+<%= f.select :currency, ['MYR', 'SGD', 'USD', 'Others' ], {}, {class: "form-control"} %><br>
+
+<!-- availability, do it by boolean -->
+<!-- ON then listing is up, vice versa -->
+<br>
+
+<div class="submit-field">
+<%= f.submit %>
+</div>
+
+<% end %>

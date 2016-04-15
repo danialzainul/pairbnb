@@ -1,0 +1,25 @@
+<h3>Edit <%= current_user.email %></h3>
+
+
+<%= form_for @user do |f| %>
+
+  <div class='text-field'>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, type: 'First name' %>
+  </div>
+
+  <div class="text-field">
+    <%= f.label :email %>
+    <%= f.text_field :email, type: 'email' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :upload_image %><br>
+    <%= f.file_field :avatar %>
+  </div><br>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

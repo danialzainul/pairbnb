@@ -1,0 +1,9 @@
+<%= form_for @reservation, url: {action: "create"} do |r| %>
+  <h4> Start date <%= r.date_select :start_date %> </h4>
+  <h4> End date <%= r.date_select :end_date %> </h4>
+
+  <%= r.hidden_field :user_id, value: current_user.id %>
+  <%= r.hidden_field :listing_id, value: @listing.id %>
+  
+  <%= r.submit %>
+<% end %>
