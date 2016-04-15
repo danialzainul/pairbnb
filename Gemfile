@@ -6,6 +6,7 @@ gem 'figaro'
 
 # User payment system
 gem 'braintree'
+gem 'gon'
 
 # OmniAuth -> allows us to login using Facebook etc
 gem 'omniauth'

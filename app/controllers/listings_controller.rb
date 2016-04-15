@@ -11,7 +11,7 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
-    @reservation = Reservation.where(listing_id: params[:id])
+    @reservation = Reservation.where(params[:id])
   end
 
   def create

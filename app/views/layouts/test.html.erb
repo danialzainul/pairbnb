@@ -1,0 +1,33 @@
+class PurchasesController < ApplicationController
+
+  def new
+    @purchase = Purchase.new
+  	gon.client_token = generate_client_token
+  	@reservation = Reservation.find(params[:id])
+    @listing = @reservation.listing
+    # @reservation; can find using secure_token also
+  end
+
+  def create
+    byebug
+    @reservation = Reservation.find(params[:purchase][:reservation_id])
+    @result = Braintree::Transaction.sale(
+              amount: @reservation.price,
+              payment_method_nonce: params[:payment_method_nonce])
+    if @result.success?
+      redirect_to root_url, notice: "Congratulations! Your transaction is successfull!"
+    else
+      flash[:alert] = "Something went wrong while processing your transaction. Please try again!"
+      gon.client_token = generate_client_token
+      render :new
+    end
+  end
+
+  private
+
+  def generate_client_token
+    Braintree::ClientToken.generate
+  end
+
+end
+

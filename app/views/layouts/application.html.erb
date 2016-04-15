@@ -1,4 +1,4 @@
-<!-- WHAT IS IN THIS PAGE WILL SHOW UP ON EVERY PAGE!! -->
+<!-- CODE on this page will show up on EVERY page -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,10 +6,17 @@
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <!-- Braintree payment system -->
+	<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+
+	<%= include_gon %>
+	<%= stylesheet_link_tag "application" %>
+	<%= javascript_include_tag "vendor/modernizr" %>
   <%= csrf_meta_tags %>
   <%= render 'layouts/header' %>
 
- </script>
+	</script>
 </head>
 
 <body>

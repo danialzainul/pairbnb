@@ -51,7 +51,7 @@
   </table>
 </div>
 
-<%= link_to "RESERVE this place", new_listing_reservation_path(params[:id]) %><br>
+<%= link_to "Create a RESERVATION", new_listing_reservation_path(params[:id]) %><br>
 <%= link_to "EDIT listing", edit_listing_path %><br>
-<%= link_to "DELETE listing", listing_path, method: :delete %><br>
+<%= link_to "DELETE listing", listing_path, method: :delete, data: { confirm: "Are you sure?" } %><br>
 <%= link_to "Go back to Listing index", listings_path %><br><br>

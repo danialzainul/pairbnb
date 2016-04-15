@@ -16,6 +16,7 @@
 
 //= require_tree .
 
+
 var $item = $('.carousel .item'); 
 var $wHeight = $(window).height();
 $item.eq(0).addClass('active');

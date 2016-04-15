@@ -1,20 +1,22 @@
-<h4> This is your reservation </h4>
+<h4> Please confirm your reservation </h4>
 
 <div id="listing_reservations" >
 <table style="width:50%">
   <tr>
+  	<th> Listing Name </th>
     <th> Start Date </th>   
     <th> End Date </th>
   </tr>
 
   <tr>
+  	<td><%= @listing.listing_name %></td>
     <td><%= @reservation.start_date %></td>    
     <td><%= @reservation.end_date %></td>
   </tr>
   </table>
-</div>
+</div><br>
 
-<%= link_to 'Pay Now', purchases_new_path + "?id=" + @reservation.id.to_s %>
+<%= link_to 'Pay Now', payments_new_path + "?id=" + @reservation.id.to_s %>
 
 <!-- generate a secure_token attached to reservation -->
 <!-- secure random generate a random string -->

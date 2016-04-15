@@ -1,7 +1,7 @@
 class Reservation < ActiveRecord::Base
 
-	has_many :users, through: :purchases
-	belongs_to :listings
-	has_many :purchases
+	has_many :users, through: :payments
+	belongs_to :listing
+	has_many :payments
 
 end
