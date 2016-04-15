@@ -4,9 +4,21 @@ source 'https://rubygems.org'
 gem 'clearance'
 gem 'figaro'
 
+# User payment system
+gem 'braintree'
+gem 'gon'
+
 # OmniAuth -> allows us to login using Facebook etc
 gem 'omniauth'
 gem 'omniauth-facebook'
+
+# Avatar and Photo Resizing
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem "mini_magick"
+
+# DatePicker
+gem 'bootstrap-sass'
+gem 'bootstrap-datepicker-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
