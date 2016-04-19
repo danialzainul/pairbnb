@@ -12,4 +12,4 @@ class Listing < ActiveRecord::Base
 
 end
 
-Listing.import
+Listing.import # for auto sync model with elastic search

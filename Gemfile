@@ -19,6 +19,7 @@ gem "mini_magick"
 # Elastic search
 gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'searchkick'
 
 # DatePicker
 gem 'bootstrap-sass'

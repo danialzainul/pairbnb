@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'payments/new'
 
   resources :listings
+  resources :search
+  get 'search', to: 'search#search'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   resources :users, only: [:show, :edit, :update, :destroy]
   
+  # Nested routes
   resources :listings do
     resources :reservations
     resources :payments, only: [:new, :create]
