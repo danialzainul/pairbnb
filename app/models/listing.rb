@@ -11,3 +11,5 @@ class Listing < ActiveRecord::Base
   include Elasticsearch::Model::Callbacks
 
 end
+
+Listing.import
