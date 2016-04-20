@@ -1,0 +1,12 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+profile_pic {
+    border: 2px solid;
+    border-radius: 25px;
+}
+
+.custom-search-form{
+    margin-top:20px;
+}

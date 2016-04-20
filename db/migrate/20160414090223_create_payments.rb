@@ -3,6 +3,7 @@ class CreatePayments < ActiveRecord::Migration
     create_table :payments do |t|
     	t.integer	:reservation_id
     	t.integer	:user_id
+      t.integer :total_price
     	t.string	:braintree_transaction_id
     	t.string	:last_4
       t.timestamps null: false

@@ -7,16 +7,23 @@
   	<th> Listing Name </th>
     <th> Start Date </th>   
     <th> End Date </th>
+    <th> No of Nights </th>
+    <th> Total Price </th>
   </tr>
 
   <tr>
   	<td><%= @listing.listing_name %></td>
     <td><%= @reservation.start_date %></td>    
     <td><%= @reservation.end_date %></td>
+    <td><%= (@reservation.end_date - @reservation.start_date).to_i %></td>
+    <td><%= @listing.price * ((@reservation.end_date - @reservation.start_date).to_i) %></td>
   </tr>
   </table>
 </div><br>
 
+<%= link_to 'EDIT Reservation', edit_listing_reservation_path %> | <%= link_to "DELETE Reservation", listing_reservation_path, method: :delete, data: { confirm: "Delete this reservation?" } %><br>
+
+<%= link_to 'Go back to Listing', listing_path(params[:listing_id]) %><br>
 <%= link_to 'Pay Now', payments_new_path + "?id=" + @reservation.id.to_s %>
 
 </ul>

@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160414090223) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160414090223) do
   create_table "payments", force: :cascade do |t|
     t.integer  "reservation_id"
     t.integer  "user_id"
+    t.integer  "total_price"
     t.string   "braintree_transaction_id"
     t.string   "last_4"
     t.datetime "created_at",               null: false
@@ -62,10 +62,12 @@ ActiveRecord::Schema.define(version: 20160414090223) do
   create_table "reservations", force: :cascade do |t|
     t.string   "user_id"
     t.string   "listing_id"
+    t.integer  "total_price"
+    t.integer  "guest"
     t.date     "start_date"
     t.date     "end_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -76,10 +78,7 @@ ActiveRecord::Schema.define(version: 20160414090223) do
     t.string   "confirmation_token", limit: 128
     t.string   "remember_token",     limit: 128, null: false
     t.string   "first_name"
-<<<<<<< HEAD
     t.string   "avatar"
-=======
->>>>>>> master
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree

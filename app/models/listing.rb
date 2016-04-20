@@ -1,5 +1,3 @@
-require 'elasticsearch/model'
-
 class Listing < ActiveRecord::Base
 
 	belongs_to :user
@@ -7,9 +5,16 @@ class Listing < ActiveRecord::Base
 
 	mount_uploaders :photos, PhotosUploader
 
-	include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
+	searchkick
+
+	def search_data
+		{
+			listing_name: listing_name,
+			country: country,
+			city: city,
+		}
+	end
 
 end
 
-Listing.import # for auto sync model with elastic search
+Listing.reindex

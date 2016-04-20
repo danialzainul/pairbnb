@@ -1,8 +1,9 @@
 <!-- show ALL listings -->
-
+<ul>
 <h3> ALL Listings </h3>
 
 <% @listings.each do |t| %>
 <%= link_to "#{t.listing_name}", listing_path(@t, :id => t.id) %><br><br>
 
 <%end%>
+</ul>

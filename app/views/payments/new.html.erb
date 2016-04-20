@@ -27,7 +27,7 @@
 
 <% end %>
 
-
+<div class="paypal">
 <script type="text/javascript">
   function setupBT() {
     braintree.setup("<%= @client_token %>", 'dropin', {
@@ -41,3 +41,5 @@
   else window.onload = setupBT;
   </script>
 </script>
+
+</div>

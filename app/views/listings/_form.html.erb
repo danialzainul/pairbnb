@@ -1,3 +1,5 @@
+<ul>
+
 <%= form_for @listing do |f| %>
 
 <%= f.label :listing_name %>
@@ -16,31 +18,34 @@
 <%= f.select :accommodates, ['1', '2', '3', '4', '5', '6+'] %><br>
 
 <%= f.label :bedrooms %>
-<%= f.select :bedrooms, ['Studio', '1', '2', '3', '4', '5+'] %><br>
+<%= f.select :bedrooms, ['1', '2', '3', '4', '5', '6+'] %><br>
 
-<%= f.label :beds %>
+<!-- <%= f.label :beds %>
 <%= f.select :beds, ['1', '2', '3', '4', '5', '6+'] %><br>
 
 <%= f.label :bathrooms %>
-<%= f.select :bathrooms, ['1', '2', '3', '4', '5', '6+'] %><br>
-
-<%= f.label :country %>
-<%= f.text_field :country %><br>
-
-<%= f.label :city %>
-<%= f.text_field :city %><br>
+<%= f.select :bathrooms, ['1', '2', '3', '4', '5', '6+'] %><br> -->
 
 <%= f.label :address %>
 <%= f.text_field :address %><br>
 
-<%= f.label :price %>
+<%= f.label :city %>
+<%= f.text_field :city %><br>
+
+<%= f.label :country %>
+<%= f.text_field :country %><br>
+
+<%= f.label :'price per night' %>
 <%= f.number_field :price %><br>
 
-<%= f.label :currency %>
-<%= f.select :currency, ['MYR', 'SGD', 'USD', 'Others' ], {}, {class: "form-control"} %><br>
+<!-- <%= f.label :currency %>
+<%= f.select :currency, ['MYR', 'SGD', 'USD', 'Others' ] %><br> -->
 
-<!-- availability, do it by boolean -->
-<!-- ON then listing is up, vice versa -->
+<div class="field">
+  <%= f.label :upload_images %><br>
+  <%= f.file_field :photos, multiple: true %>
+</div><br>
+
 <br>
 
 <div class="submit-field">
@@ -48,3 +53,5 @@
 </div>
 
 <% end %>
+
+</ul>

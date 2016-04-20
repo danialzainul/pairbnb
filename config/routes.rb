@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   get 'payments/new'
 
-  resources :listings
-  resources :search
-  get 'search', to: 'search#search'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

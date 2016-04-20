@@ -1,27 +1,33 @@
 class ListingsController < ApplicationController
 
-	# GET /demos/new
   def new
     @listing = Listing.new
   end
 
   def index
-    @listings = Listing.all
+    if params[:search].nil?
+      @listings = Listing.all
+    else
+      @listings = Listing.search params[:search]
+    end
+    
   end
 
   def show
     @listing = Listing.find(params[:id])
-    @reservation = Reservation.where(listing_id: params[:id]) # where and find_by .where(listing_id: params[:id])
+    @reservation = Reservation.where(listing_id: params[:id]) # where and find_by => .where(listing_id: params[:id])
   end
 
   def create
-    # @listing = current_user.listings.new(listing_params)
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
-    if @listing.save
-      redirect_to listings_path, notice: "Listing created successfully :D"
-    else
-      render :new
+    return @error_msg = "Maximum 5 photos" if @listing.photos.length > 5
+    respond_to do |format|
+      if @listing.save
+        format.html { redirect_to listings_path, notice: "Listing created successfully :D" }
+      else
+        render :new
+      end
     end 
   end
 
